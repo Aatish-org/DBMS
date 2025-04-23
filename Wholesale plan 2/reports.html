@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard with Multiple Charts</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="flex bg-gray-100 min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-md p-6 space-y-6">
+    <div class="flex items-center space-x-3">
+      <img src="store.png" alt="Logo" class="w-8 h-8">
+      <h1 class="text-xl font-bold text-gray-800">MyStore</h1>
+    </div>
+    <nav class="space-y-4">
+      <a href="dashboard.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="dashboard-icon.png" class="w-5 h-5" alt="Dashboard">
+        <span>Home</span>
+      </a>
+      <a href="products.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="products-icon.png" class="w-5 h-5" alt="Products">
+        <span>Products</span>
+      </a>
+      <a href="cart.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="cart-icon.png" class="w-5 h-5" alt="Cart">
+        <span>Cart</span>
+      </a>
+      <a href="orders.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="orders-icon.png" class="w-5 h-5" alt="Orders">
+        <span>Orders</span>
+      </a>
+      <a href="reports.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="reports-icon.png" class="w-5 h-5" alt="Reports">
+        <span>Reports</span>
+      </a>
+      <a href="settings.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="settings-icon.png" class="w-5 h-5" alt="Settings">
+        <span>Settings</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 space-y-6">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-gray-800">Dashboard Overview</h1>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white p-4 rounded-lg shadow">
+        <p class="text-sm text-gray-500">Total Revenue Today</p>
+        <h2 class="text-2xl font-bold text-green-600">$4,820</h2>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow">
+        <p class="text-sm text-gray-500">Orders Pending</p>
+        <h2 class="text-2xl font-bold text-yellow-500">16</h2>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow">
+        <p class="text-sm text-gray-500">Low Stock Alerts</p>
+        <h2 class="text-2xl font-bold text-red-500">5</h2>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow">
+        <p class="text-sm text-gray-500">New Customers</p>
+        <h2 class="text-2xl font-bold text-blue-600">12</h2>
+      </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Sales Overview</h3>
+        <canvas id="salesChart" class="w-full max-w-xs mx-auto"></canvas>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Monthly Revenue</h3>
+        <canvas id="revenueChart" class="w-full max-w-xs mx-auto"></canvas>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Product Distribution</h3>
+        <canvas id="productChart" class="w-full max-w-xs mx-auto"></canvas>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">Recent Activity</h3>
+      <ul class="space-y-4">
+        <li class="flex justify-between items-center">
+          <span>Order #1023 by Sarah</span>
+          <span class="text-sm bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Pending</span>
+        </li>
+        <li class="flex justify-between items-center">
+          <span>Order #1022 by John</span>
+          <span class="text-sm bg-green-100 text-green-700 px-2 py-1 rounded">Shipped</span>
+        </li>
+        <li class="flex justify-between items-center">
+          <span>Order #1021 by Meera</span>
+          <span class="text-sm bg-red-100 text-red-700 px-2 py-1 rounded">Cancelled</span>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    // Bar Chart Configuration
+    const salesCtx = document.getElementById('salesChart').getContext('2d');
+    new Chart(salesCtx, {
+      type: 'bar',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May'],
+        datasets: [{
+          label: 'Sales ($)',
+          data: [1200, 1900, 3000, 5000, 2400],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    // Line Chart Configuration
+    const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+    new Chart(revenueCtx, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May'],
+        datasets: [{
+          label: 'Revenue ($)',
+          data: [1500, 2500, 4000, 6000, 3000],
+          borderColor: 'rgba(54, 162, 235, 1)',
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    // Pie Chart Configuration
+    const productCtx = document.getElementById('productChart').getContext('2d');
+    new Chart(productCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Electronics', 'Clothing', 'Groceries', 'Furniture'],
+        datasets: [{
+          data: [30, 20, 25, 25],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orders</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex bg-gray-100 min-h-screen">
+
+  <aside class="w-64 bg-white shadow-md p-6 space-y-6">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+      <img src="store.png" alt="Logo" class="w-8 h-8">
+      <h1 class="text-xl font-bold text-gray-800">MyStore</h1>
+    </div>
+
+    <!-- Menu -->
+   <nav class="space-y-4">
+      <a href="dashboard.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="dashboard-icon.png" class="w-5 h-5" alt="Dashboard">
+        <span>Home</span>
+      </a>
+      <a href="products.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="products-icon.png" class="w-5 h-5" alt="Products">
+        <span>Products</span>
+      </a>
+      <a href="cart.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="cart-icon.png" class="w-5 h-5" alt="Cart">
+        <span>Cart</span>
+      </a>
+      <a href="orders.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="orders-icon.png" class="w-5 h-5" alt="Orders">
+        <span>Orders</span>
+      </a>
+      <a href="reports.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="reports-icon.png" class="w-5 h-5" alt="Reports">
+        <span>Reports</span>
+      </a>
+      <a href="settings.html" class="flex items-center space-x-4 text-gray-700 hover:text-blue-600">
+        <img src="settings-icon.png" class="w-5 h-5" alt="Settings">
+        <span>Settings</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+<div id="orders" class="page p-6 space-y-6">
+  <h2 class="text-2xl font-semibold text-gray-800">Orders</h2>
+
+  <!-- Summary Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div class="bg-white p-4 rounded-lg shadow">
+      <p class="text-gray-500">Total Orders</p>
+      <p class="text-2xl font-bold text-gray-800">152</p>
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow">
+      <p class="text-gray-500">Pending</p>
+      <p class="text-2xl font-bold text-yellow-500">34</p>
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow">
+      <p class="text-gray-500">Completed</p>
+      <p class="text-2xl font-bold text-green-600">110</p>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+    <input
+      type="search"
+      placeholder="Search by Order ID or Customer"
+      class="w-full sm:w-1/3 p-2 border border-gray-300 rounded"
+    />
+    <select class="p-2 border border-gray-300 rounded">
+      <option value="all">All Status</option>
+      <option value="pending">Pending</option>
+      <option value="shipped">Shipped</option>
+      <option value="delivered">Delivered</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
+  </div>
+
+  <!-- Orders Table -->
+  <div class="overflow-x-auto bg-white rounded-lg shadow">
+    <table class="min-w-full text-sm text-left">
+      <thead class="bg-gray-100 text-gray-600">
+        <tr>
+          <th class="px-6 py-3">Order ID</th>
+          <th class="px-6 py-3">Customer</th>
+          <th class="px-6 py-3">Products</th>
+          <th class="px-6 py-3">Quantity</th>
+          <th class="px-6 py-3">Date</th>
+          <th class="px-6 py-3">Status</th>
+          <th class="px-6 py-3">Total</th>
+          <th class="px-6 py-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-700">
+        <tr class="border-t">
+          <td class="px-6 py-4">ORD1234</td>
+          <td class="px-6 py-4">Aarav Enterprises</td>
+          <td class="px-6 py-4">Rice, Wheat</td>
+          <td class="px-6 py-4">100</td>
+          <td class="px-6 py-4">2025-04-10</td>
+          <td class="px-6 py-4 text-yellow-500 font-medium">Pending</td>
+          <td class="px-6 py-4">$5400</td>
+          <td class="px-6 py-4">
+            <button class="text-blue-600 hover:underline text-sm">View</button>
+          </td>
+        </tr>
+        <tbody class="text-gray-700">
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1234</td>
+            <td class="px-6 py-4">Aarav Enterprises</td>
+            <td class="px-6 py-4">Rice, Wheat</td>
+            <td class="px-6 py-4">100</td>
+            <td class="px-6 py-4">2025-04-10</td>
+            <td class="px-6 py-4 text-yellow-500 font-medium">Pending</td>
+            <td class="px-6 py-4">$5400</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1235</td>
+            <td class="px-6 py-4">Global Supplies</td>
+            <td class="px-6 py-4">Sugar, Salt</td>
+            <td class="px-6 py-4">50</td>
+            <td class="px-6 py-4">2025-04-11</td>
+            <td class="px-6 py-4 text-green-600 font-medium">Completed</td>
+            <td class="px-6 py-4">$1200</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1236</td>
+            <td class="px-6 py-4">Elite Traders</td>
+            <td class="px-6 py-4">Oil, Spices</td>
+            <td class="px-6 py-4">75</td>
+            <td class="px-6 py-4">2025-04-12</td>
+            <td class="px-6 py-4 text-yellow-500 font-medium">Pending</td>
+            <td class="px-6 py-4">$3200</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1237</td>
+            <td class="px-6 py-4">FreshMart</td>
+            <td class="px-6 py-4">Vegetables, Fruits</td>
+            <td class="px-6 py-4">200</td>
+            <td class="px-6 py-4">2025-04-13</td>
+            <td class="px-6 py-4 text-green-600 font-medium">Completed</td>
+            <td class="px-6 py-4">$4500</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1238</td>
+            <td class="px-6 py-4">Urban Grocers</td>
+            <td class="px-6 py-4">Milk, Bread</td>
+            <td class="px-6 py-4">120</td>
+            <td class="px-6 py-4">2025-04-14</td>
+            <td class="px-6 py-4 text-yellow-500 font-medium">Pending</td>
+            <td class="px-6 py-4">$1800</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1239</td>
+            <td class="px-6 py-4">QuickMart</td>
+            <td class="px-6 py-4">Snacks, Beverages</td>
+            <td class="px-6 py-4">90</td>
+            <td class="px-6 py-4">2025-04-15</td>
+            <td class="px-6 py-4 text-green-600 font-medium">Completed</td>
+            <td class="px-6 py-4">$2500</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1240</td>
+            <td class="px-6 py-4">Daily Needs</td>
+            <td class="px-6 py-4">Eggs, Butter</td>
+            <td class="px-6 py-4">60</td>
+            <td class="px-6 py-4">2025-04-16</td>
+            <td class="px-6 py-4 text-yellow-500 font-medium">Pending</td>
+            <td class="px-6 py-4">$1400</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1241</td>
+            <td class="px-6 py-4">SuperMart</td>
+            <td class="px-6 py-4">Cereal, Juice</td>
+            <td class="px-6 py-4">80</td>
+            <td class="px-6 py-4">2025-04-17</td>
+            <td class="px-6 py-4 text-green-600 font-medium">Completed</td>
+            <td class="px-6 py-4">$2100</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1242</td>
+            <td class="px-6 py-4">MegaStore</td>
+            <td class="px-6 py-4">Pasta, Sauce</td>
+            <td class="px-6 py-4">70</td>
+            <td class="px-6 py-4">2025-04-18</td>
+            <td class="px-6 py-4 text-yellow-500 font-medium">Pending</td>
+            <td class="px-6 py-4">$1700</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">ORD1243</td>
+            <td class="px-6 py-4">Foodies</td>
+            <td class="px-6 py-4">Cheese, Yogurt</td>
+            <td class="px-6 py-4">65</td>
+            <td class="px-6 py-4">2025-04-19</td>
+            <td class="px-6 py-4 text-green-600 font-medium">Completed</td>
+            <td class="px-6 py-4">$1600</td>
+            <td class="px-6 py-4">
+              <button class="text-blue-600 hover:underline text-sm">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+</body>
+</html>

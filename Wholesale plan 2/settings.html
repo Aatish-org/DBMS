@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="darkMode.js"></script>
+  <script src="auth.js"></script>
+  <style>
+    .toggle-checkbox {
+      appearance: none;
+      width: 50px;
+      height: 24px;
+      background-color: #e2e8f0;
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .toggle-checkbox:checked {
+      background-color: #4299e1;
+    }
+    .toggle-checkbox:before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      background-color: white;
+      transition: transform 0.3s;
+    }
+    .toggle-checkbox:checked:before {
+      transform: translateX(26px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-white shadow-md sticky top-0 z-10">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-3">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <img src="store.png" alt="Logo" class="w-8 h-8">
+          <h1 class="text-xl font-bold text-gray-800">MyStore</h1>
+        </div>
+
+        <!-- Menu -->
+        <nav class="flex space-x-6">
+          <a href="dashboard.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="dashboard-icon.png" class="w-5 h-5" alt="Dashboard">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Home</span>
+          </a>
+          <a href="products.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="products-icon.png" class="w-5 h-5" alt="Products">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Products</span>
+          </a>
+          <a href="cart.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="cart-icon.png" class="w-5 h-5" alt="Suppliers">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Suppliers</span>
+          </a>
+          <a href="orders.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="orders-icon.png" class="w-5 h-5" alt="Orders">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Orders</span>
+          </a>
+          <a href="reports.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="reports-icon.png" class="w-5 h-5" alt="Reports">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Reports</span>
+          </a>
+          <a href="settings.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="settings-icon.png" class="w-5 h-5" alt="Settings">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Settings</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Settings</h1>
+
+    <!-- Account Settings -->
+    <section class="bg-white p-6 rounded-lg shadow mb-6">
+      <h2 class="text-lg font-semibold text-gray-800 mb-4">Account Settings</h2>
+      <div class="mb-4">
+        <p class="text-gray-600">Current Username:</p>
+        <p id="currentUsername" class="font-semibold text-gray-800">Loading...</p>
+      </div>
+      <form id="usernameForm" class="space-y-4">
+        <div>
+          <label class="block text-gray-600">Username</label>
+          <input type="text" id="usernameInput" class="w-full p-2 border border-gray-300 rounded" placeholder="Your Username">
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Username</button>
+      </form>
+    </section>
+
+    <!-- Password Settings -->
+    <section class="bg-white p-6 rounded-lg shadow mb-6">
+      <h2 class="text-lg font-semibold text-gray-800 mb-4">Password Settings</h2>
+      <form id="passwordForm" class="space-y-4">
+        <div>
+          <label class="block text-gray-600">Current Password</label>
+          <input type="password" id="currentPassword" class="w-full p-2 border border-gray-300 rounded" placeholder="Current Password">
+        </div>
+        <div>
+          <label class="block text-gray-600">New Password</label>
+          <input type="password" id="newPassword" class="w-full p-2 border border-gray-300 rounded" placeholder="New Password">
+        </div>
+        <div id="passwordError" class="text-red-600 hidden">Current password is incorrect. Please try again.</div>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Change Password</button>
+      </form>
+    </section>
+
+    <!-- Preferences -->
+    <section class="bg-white p-6 rounded-lg shadow mb-6">
+      <h2 class="text-lg font-semibold text-gray-800 mb-4">Preferences</h2>
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <span>Dark Mode</span>
+          <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+        </div>
+        <div>
+          <label class="block text-gray-600">Language</label>
+          <select class="w-full p-2 border border-gray-300 rounded">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold text-gray-800 mb-4">Security</h2>
+      <div class="flex flex-col space-y-4">
+        <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Enable Two-Factor Authentication</button>
+        <button class="logout-btn bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Logout</button>
+      </div>
+    </section>
+  </main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Display current username
+    const currentUsername = document.getElementById('currentUsername');
+    const usernameInput = document.getElementById('usernameInput');
+
+    // Get username from localStorage
+    const username = localStorage.getItem('username') || 'abcd'; // Default to 'abcd' if not set
+
+    // Display current username
+    currentUsername.textContent = username;
+
+    // Pre-fill the username input
+    usernameInput.value = username;
+
+    // Username form handling
+    const usernameForm = document.getElementById('usernameForm');
+
+    usernameForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get the new username
+      const newUsername = usernameInput.value.trim();
+
+      if (newUsername) {
+        // Update username in localStorage
+        localStorage.setItem('username', newUsername);
+
+        // Update displayed username
+        currentUsername.textContent = newUsername;
+
+        // In a real application, you would send the username to the server
+        alert('Username updated successfully!');
+      } else {
+        alert('Please enter a username.');
+      }
+    });
+
+    // Password form handling
+    const passwordForm = document.getElementById('passwordForm');
+    const currentPasswordInput = document.getElementById('currentPassword');
+    const newPasswordInput = document.getElementById('newPassword');
+    const passwordError = document.getElementById('passwordError');
+
+    passwordForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get stored password or use default
+      const storedPassword = localStorage.getItem('password') || '1234';
+
+      // Check if current password matches the stored password
+      if (currentPasswordInput.value === storedPassword) {
+        // Hide error message if it was previously shown
+        passwordError.classList.add('hidden');
+
+        // If a new password is provided, update the stored password
+        if (newPasswordInput.value.trim() !== '') {
+          // Store the new password in localStorage
+          localStorage.setItem('password', newPasswordInput.value.trim());
+
+          // In a real application, you would send this to the server
+          console.log('Password updated successfully');
+          alert('Password updated successfully!');
+        } else {
+          alert('Please enter a new password.');
+        }
+      } else {
+        // Show error message
+        passwordError.classList.remove('hidden');
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MyStore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="darkMode.js"></script>
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <div class="login-container">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+      <!-- Logo -->
+      <div class="flex items-center justify-center mb-8">
+        <img src="store.png" alt="Logo" class="w-12 h-12">
+        <h1 class="text-2xl font-bold text-gray-800 ml-3">MyStore</h1>
+      </div>
+
+      <h2 class="text-xl font-semibold text-gray-800 mb-6 text-center">Login</h2>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="username" class="block text-gray-700 font-medium mb-2">Username</label>
+          <input type="text" id="username" name="username" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your username" required>
+        </div>
+
+        <div>
+          <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+          <input type="password" id="password" name="password" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password" required>
+        </div>
+
+        <div id="errorMessage" class="text-red-600 hidden">Invalid username or password. Please try again.</div>
+
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition duration-300">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if user is already logged in
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+        window.location.href = 'dashboard.html';
+      }
+
+      // Handle form submission
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Get stored username and password or use defaults
+        const storedUsername = localStorage.getItem('username') || 'abcd';
+        const storedPassword = localStorage.getItem('password') || '1234';
+
+        // Check credentials against stored values
+        if (username === storedUsername && password === storedPassword) {
+          // Set login status, username, and password in localStorage
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('username', username);
+          localStorage.setItem('password', password);
+
+          // Redirect to dashboard
+          window.location.href = 'dashboard.html';
+        } else {
+          // Show error message
+          document.getElementById('errorMessage').classList.remove('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

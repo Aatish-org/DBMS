@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="darkMode.js"></script>
+  <script src="auth.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-white shadow-md sticky top-0 z-10">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-3">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <img src="store.png" alt="Logo" class="w-8 h-8">
+          <h1 class="text-xl font-bold text-gray-800">MyStore</h1>
+        </div>
+
+        <!-- Menu -->
+        <nav class="flex space-x-6">
+          <a href="dashboard.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="dashboard-icon.png" class="w-5 h-5" alt="Dashboard">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Home</span>
+          </a>
+          <a href="products.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="products-icon.png" class="w-5 h-5" alt="Products">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Products</span>
+          </a>
+          <a href="cart.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="cart-icon.png" class="w-5 h-5" alt="Suppliers">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Suppliers</span>
+          </a>
+          <a href="orders.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="orders-icon.png" class="w-5 h-5" alt="Orders">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Orders</span>
+          </a>
+          <a href="reports.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="reports-icon.png" class="w-5 h-5" alt="Reports">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Reports</span>
+          </a>
+          <a href="settings.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="settings-icon.png" class="w-5 h-5" alt="Settings">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Settings</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Products</h2>
+
+    <!-- Search Bar and Add Product Button -->
+    <div class="flex justify-between items-center mb-6">
+      <div class="w-3/4">
+        <input type="text" placeholder="Search products..." class="w-full p-2 border border-gray-300 rounded">
+      </div>
+      <button id="addProductBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+        Add New Product
+      </button>
+    </div>
+
+    <!-- Product Table -->
+    <div class="overflow-x-auto bg-white rounded-lg shadow">
+      <table class="min-w-full text-sm text-left">
+        <thead class="bg-gray-100 text-gray-600">
+          <tr>
+            <th class="px-6 py-3">S.No</th>
+            <th class="px-6 py-3">Product Name</th>
+            <th class="px-6 py-3">Product ID</th>
+            <th class="px-6 py-3">Category</th>
+            <th class="px-6 py-3">Price</th>
+            <th class="px-6 py-3">Stock</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr class="border-t">
+            <td class="px-6 py-4">1</td>
+            <td class="px-6 py-4">Smartphone X1</td>
+            <td class="px-6 py-4">P001</td>
+            <td class="px-6 py-4">Electronics</td>
+            <td class="px-6 py-4">$10.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">2</td>
+            <td class="px-6 py-4">Designer Jeans</td>
+            <td class="px-6 py-4">P002</td>
+            <td class="px-6 py-4">Fashion</td>
+            <td class="px-6 py-4">$15.49</td>
+            <td class="px-6 py-4">Out of Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">3</td>
+            <td class="px-6 py-4">Wireless Earbuds</td>
+            <td class="px-6 py-4">P003</td>
+            <td class="px-6 py-4">Electronics</td>
+            <td class="px-6 py-4">$7.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">4</td>
+            <td class="px-6 py-4">Organic Apples</td>
+            <td class="px-6 py-4">P004</td>
+            <td class="px-6 py-4">Food</td>
+            <td class="px-6 py-4">$12.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">5</td>
+            <td class="px-6 py-4">Summer Dress</td>
+            <td class="px-6 py-4">P005</td>
+            <td class="px-6 py-4">Fashion</td>
+            <td class="px-6 py-4">$9.49</td>
+            <td class="px-6 py-4">Out of Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">6</td>
+            <td class="px-6 py-4">Laptop Pro</td>
+            <td class="px-6 py-4">P006</td>
+            <td class="px-6 py-4">Electronics</td>
+            <td class="px-6 py-4">$14.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">7</td>
+            <td class="px-6 py-4">Organic Pasta</td>
+            <td class="px-6 py-4">P007</td>
+            <td class="px-6 py-4">Food</td>
+            <td class="px-6 py-4">$19.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">8</td>
+            <td class="px-6 py-4">Leather Jacket</td>
+            <td class="px-6 py-4">P008</td>
+            <td class="px-6 py-4">Fashion</td>
+            <td class="px-6 py-4">$11.49</td>
+            <td class="px-6 py-4">Out of Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">9</td>
+            <td class="px-6 py-4">Bluetooth Speaker</td>
+            <td class="px-6 py-4">P009</td>
+            <td class="px-6 py-4">Electronics</td>
+            <td class="px-6 py-4">$8.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">10</td>
+            <td class="px-6 py-4">Organic Quinoa</td>
+            <td class="px-6 py-4">P010</td>
+            <td class="px-6 py-4">Food</td>
+            <td class="px-6 py-4">$13.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">11</td>
+            <td class="px-6 py-4">Winter Coat</td>
+            <td class="px-6 py-4">P011</td>
+            <td class="px-6 py-4">Fashion</td>
+            <td class="px-6 py-4">$16.49</td>
+            <td class="px-6 py-4">Out of Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">12</td>
+            <td class="px-6 py-4">Smart Watch</td>
+            <td class="px-6 py-4">P012</td>
+            <td class="px-6 py-4">Electronics</td>
+            <td class="px-6 py-4">$18.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">13</td>
+            <td class="px-6 py-4">Organic Honey</td>
+            <td class="px-6 py-4">P013</td>
+            <td class="px-6 py-4">Food</td>
+            <td class="px-6 py-4">$20.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">14</td>
+            <td class="px-6 py-4">Running Shoes</td>
+            <td class="px-6 py-4">P014</td>
+            <td class="px-6 py-4">Fashion</td>
+            <td class="px-6 py-4">$9.99</td>
+            <td class="px-6 py-4">Out of Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">15</td>
+            <td class="px-6 py-4">Wireless Mouse</td>
+            <td class="px-6 py-4">P015</td>
+            <td class="px-6 py-4">Electronics</td>
+            <td class="px-6 py-4">$14.49</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">16</td>
+            <td class="px-6 py-4">Organic Coffee</td>
+            <td class="px-6 py-4">P016</td>
+            <td class="px-6 py-4">Food</td>
+            <td class="px-6 py-4">$22.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">17</td>
+            <td class="px-6 py-4">Casual Shirt</td>
+            <td class="px-6 py-4">P017</td>
+            <td class="px-6 py-4">Fashion</td>
+            <td class="px-6 py-4">$12.49</td>
+            <td class="px-6 py-4">Out of Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">18</td>
+            <td class="px-6 py-4">Tablet Pro</td>
+            <td class="px-6 py-4">P018</td>
+            <td class="px-6 py-4">Electronics</td>
+            <td class="px-6 py-4">$17.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">19</td>
+            <td class="px-6 py-4">Organic Olive Oil</td>
+            <td class="px-6 py-4">P019</td>
+            <td class="px-6 py-4">Food</td>
+            <td class="px-6 py-4">$21.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">20</td>
+            <td class="px-6 py-4">Designer Handbag</td>
+            <td class="px-6 py-4">P020</td>
+            <td class="px-6 py-4">Fashion</td>
+            <td class="px-6 py-4">$25.99</td>
+            <td class="px-6 py-4">In Stock</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Add Product Modal -->
+  <div id="addProductModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl font-semibold text-gray-800">Add New Product</h3>
+        <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <form id="addProductForm">
+        <div class="mb-4">
+          <label for="productName" class="block text-gray-700 text-sm font-bold mb-2">Product Name</label>
+          <input type="text" id="productName" name="productName" class="w-full p-2 border border-gray-300 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="productId" class="block text-gray-700 text-sm font-bold mb-2">Product ID</label>
+          <input type="text" id="productId" name="productId" class="w-full p-2 border border-gray-300 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Category</label>
+          <select id="category" name="category" class="w-full p-2 border border-gray-300 rounded" required>
+            <option value="">Select Category</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Food">Food</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price ($)</label>
+          <input type="number" id="price" name="price" step="0.01" min="0" class="w-full p-2 border border-gray-300 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="stock" class="block text-gray-700 text-sm font-bold mb-2">Stock Status</label>
+          <select id="stock" name="stock" class="w-full p-2 border border-gray-300 rounded" required>
+            <option value="">Select Status</option>
+            <option value="In Stock">In Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
+          </select>
+        </div>
+        <div class="flex justify-end">
+          <button type="button" id="cancelBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded mr-2">
+            Cancel
+          </button>
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+            Add Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Get DOM elements
+    const addProductBtn = document.getElementById('addProductBtn');
+    const addProductModal = document.getElementById('addProductModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const addProductForm = document.getElementById('addProductForm');
+    const modalContent = document.querySelector('#addProductModal > div');
+
+    // Function to close modal
+    function closeModal() {
+      addProductModal.classList.add('hidden');
+      addProductForm.reset();
+    }
+
+    // Show modal when Add New Product button is clicked
+    addProductBtn.addEventListener('click', () => {
+      addProductModal.classList.remove('hidden');
+    });
+
+    // Hide modal when Close button is clicked
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Hide modal when Cancel button is clicked
+    cancelBtn.addEventListener('click', closeModal);
+
+    // Hide modal when clicking outside the modal content
+    addProductModal.addEventListener('click', (e) => {
+      if (e.target === addProductModal) {
+        closeModal();
+      }
+    });
+
+    // Handle form submission
+    addProductForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Get form values
+      const productName = document.getElementById('productName').value;
+      const productId = document.getElementById('productId').value;
+      const category = document.getElementById('category').value;
+      const price = document.getElementById('price').value;
+      const stock = document.getElementById('stock').value;
+
+      // Determine category color class
+      let categoryColorClass = '';
+      if (category === 'Electronics') {
+        categoryColorClass = 'text-blue-600';
+      } else if (category === 'Fashion') {
+        categoryColorClass = 'text-purple-600';
+      } else if (category === 'Food') {
+        categoryColorClass = 'text-yellow-600';
+      }
+
+      // Get the table body
+      const tableBody = document.querySelector('tbody');
+
+      // Check if product ID already exists
+      const existingRows = tableBody.querySelectorAll('tr');
+      let isDuplicate = false;
+
+      existingRows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        if (cells.length >= 4) {
+          const existingProductId = cells[2].textContent.trim();
+          if (existingProductId === productId) {
+            isDuplicate = true;
+          }
+        }
+      });
+
+      if (isDuplicate) {
+        alert('Product ID already exists. Please use a unique Product ID.');
+        return;
+      }
+
+      // Get the current number of rows to determine the new S.No
+      const rowCount = tableBody.rows.length;
+      const newSNo = rowCount + 1;
+
+      // Create a new row
+      const newRow = document.createElement('tr');
+      newRow.className = 'border-t';
+
+      // Add the cells with data
+      // Determine stock color class
+      let stockColorClass = '';
+      if (stock === 'In Stock') {
+        stockColorClass = 'text-green-600';
+      } else if (stock === 'Out of Stock') {
+        stockColorClass = 'text-red-600';
+      }
+
+      newRow.innerHTML = `
+        <td class="px-6 py-4">${newSNo}</td>
+        <td class="px-6 py-4 ${categoryColorClass}">${productName}</td>
+        <td class="px-6 py-4 ${categoryColorClass}">${productId}</td>
+        <td class="px-6 py-4 ${categoryColorClass}">${category}</td>
+        <td class="px-6 py-4 ${categoryColorClass}">$${parseFloat(price).toFixed(2)}</td>
+        <td class="px-6 py-4 ${stockColorClass}">${stock}</td>
+      `;
+
+      // Add the new row to the table
+      tableBody.appendChild(newRow);
+
+      // Hide the modal and reset the form
+      closeModal();
+
+      // Apply colors to the new category cell
+      applyCategoryColors();
+    });
+  </script>
+
+  <!-- Script to apply different colors to categories -->
+  <script>
+    // Function to apply colors to category cells and row cells
+    function applyCategoryColors() {
+      // Get all rows in the table body
+      const tableRows = document.querySelectorAll('tbody tr');
+
+      // Process each row
+      tableRows.forEach(row => {
+        // Get the category cell (4th column)
+        const categoryCell = row.querySelector('td:nth-child(4)');
+        const category = categoryCell.textContent.trim();
+
+        // Determine the color class based on category
+        let colorClass = '';
+        if (category === 'Electronics') {
+          colorClass = 'text-blue-600';
+        } else if (category === 'Fashion') {
+          colorClass = 'text-purple-600';
+        } else if (category === 'Food') {
+          colorClass = 'text-yellow-600';
+        }
+
+        // Apply the color class to the category cell
+        categoryCell.classList.add(colorClass);
+
+        // Apply the same color to other cells in the row except S.No and Stock
+        const cells = row.querySelectorAll('td');
+        cells.forEach((cell, index) => {
+          // Skip S.No (index 0) and Stock (index 5) columns
+          if (index !== 0 && index !== 5) {
+            cell.classList.add(colorClass);
+          }
+        });
+
+        // Apply color to Stock column based on its value
+        const stockCell = row.querySelector('td:nth-child(6)');
+        const stockStatus = stockCell.textContent.trim();
+        if (stockStatus === 'In Stock') {
+          stockCell.classList.add('text-green-600');
+        } else if (stockStatus === 'Out of Stock') {
+          stockCell.classList.add('text-red-600');
+        }
+      });
+    }
+
+    // Run the function when the page loads
+    document.addEventListener('DOMContentLoaded', applyCategoryColors);
+
+    // The colors will be applied when a new product is added
+    // We don't need a separate event listener as we'll modify the existing one
+  </script>
+</body>
+</html>

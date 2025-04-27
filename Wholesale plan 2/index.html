@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="script.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="darkMode.js"></script>
+  <script src="auth.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-white shadow-md sticky top-0 z-10">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-3">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <img src="store.png" alt="Logo" class="w-8 h-8">
+          <h1 class="text-xl font-bold text-gray-800">MyStore</h1>
+        </div>
+
+        <!-- Menu -->
+        <nav class="flex space-x-6">
+          <a href="dashboard.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="dashboard-icon.png" class="w-5 h-5" alt="Dashboard">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Home</span>
+          </a>
+          <a href="products.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="products-icon.png" class="w-5 h-5" alt="Products">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Products</span>
+          </a>
+          <a href="cart.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="cart-icon.png" class="w-5 h-5" alt="Cart">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Cart</span>
+          </a>
+          <a href="orders.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="orders-icon.png" class="w-5 h-5" alt="Orders">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Orders</span>
+          </a>
+          <a href="reports.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="reports-icon.png" class="w-5 h-5" alt="Reports">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Reports</span>
+          </a>
+          <a href="settings.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+            <img src="settings-icon.png" class="w-5 h-5" alt="Settings">
+            <span class="bg-gray-200 rounded-md px-3 py-1">Settings</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Welcome to your Dashboard</h2>
+    <!-- Add more content here -->
+    <p class="text-gray-600">Select a menu option to get started.</p>
+  </main>
+
+</body>
+</html>
